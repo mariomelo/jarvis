@@ -117,7 +117,6 @@ echo "---------------------------------------------------------"
 echo "$(tput setaf 2)JARVIS: Installing Neovim plugins and linking dotfiles.$(tput sgr 0)"
 echo "---------------------------------------------------------"
 
-source install/backup.sh
 source install/link.sh
 nvim +PlugInstall +qall
 nvim +UpdateRemotePlugins +qall
