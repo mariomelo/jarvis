@@ -31,7 +31,6 @@ packages=(
   "tmux"
   "neovim"
   "python3"
-  "zsh"
   "ripgrep"
   "fzf"
   "z"
@@ -92,23 +91,6 @@ fi
 mkdir -p ~/.local/share/nvim/backup
 
 echo "---------------------------------------------------------"
-echo "$(tput setaf 2)JARVIS: Installing oh-my-zsh.$(tput sgr 0)"
-echo "---------------------------------------------------------"
-
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-else
-  echo "---------------------------------------------------------"
-  echo "$(tput setaf 2)JARVIS: oh-my-zsh already installed.$(tput sgr 0)"
-  echo "---------------------------------------------------------"
-fi
-
-echo "---------------------------------------------------------"
-echo "$(tput setaf 2)JARVIS: Installing zsh-autosuggestions.$(tput sgr 0)"
-echo "---------------------------------------------------------"
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-
-echo "---------------------------------------------------------"
 echo "$(tput setaf 2)JARVIS: Installing vtop.$(tput sgr 0)"
 echo "---------------------------------------------------------"
 npm install -g vtop
@@ -120,10 +102,6 @@ echo "---------------------------------------------------------"
 source install/link.sh
 nvim +PlugInstall +qall
 nvim +UpdateRemotePlugins +qall
-nvim +"CocInstall coc-tsserver" +qall
-nvim +"CocInstall coc-json" +qall
-nvim +"CocInstall coc-solargraph" +qall
-nvim +"CocInstall coc-css" +qall
 
 echo "---------------------------------------------------------"
 echo "$(tput setaf 2)JARVIS: Installing Space vim-airline theme.$(tput sgr 0)"
@@ -139,13 +117,6 @@ if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   ~/.tmux/plugins/tpm/scripts/install_plugins.sh
 fi
-
-echo "---------------------------------------------------------"
-echo "$(tput setaf 2)JARVIS: Switching shell to zsh. You may need to logout.$(tput sgr 0)"
-echo "---------------------------------------------------------"
-
-sudo sh -c "echo $(which zsh) >> /etc/shells"
-chsh -s $(which zsh)
 
 echo "---------------------------------------------------------"
 echo "$(tput setaf 2)JARVIS: System update complete. Currently running at 100% power. Enjoy.$(tput sgr 0)"
