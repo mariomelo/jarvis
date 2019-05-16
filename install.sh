@@ -120,11 +120,6 @@ echo "---------------------------------------------------------"
 source install/link.sh
 nvim +PlugInstall +qall
 nvim +UpdateRemotePlugins +qall
-nvim +"CocInstall coc-tsserver" +qall
-nvim +"CocInstall coc-json" +qall
-nvim +"CocInstall coc-solargraph" +qall
-nvim +"CocInstall coc-css" +qall
-
 echo "---------------------------------------------------------"
 echo "$(tput setaf 2)JARVIS: Installing Space vim-airline theme.$(tput sgr 0)"
 echo "---------------------------------------------------------"
@@ -150,5 +145,11 @@ chsh -s $(which zsh)
 echo "---------------------------------------------------------"
 echo "$(tput setaf 2)JARVIS: System update complete. Currently running at 100% power. Enjoy.$(tput sgr 0)"
 echo "---------------------------------------------------------"
+
+" Install Coc Dependencies
+nvim +"CocInstall coc-tsserver" +qall
+nvim +"CocInstall coc-json" +qall
+nvim +"CocInstall coc-solargraph" +qall
+nvim +"CocInstall coc-css" +qall
 
 exit 0
