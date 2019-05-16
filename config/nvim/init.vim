@@ -5,8 +5,20 @@ source ~/.config/nvim/plugins.vim
 " ===                           EDITING OPTIONS                            === "
 " ============================================================================ "
 
-" Remap leader key to ,
-let g:mapleader=','
+" Keyboard Shortcuts
+let g:mapleader=" "
+map <leader>s :source ~/.config/nvim/init.vim<CR>
+map <leader>S :e ~/.config/nvim/init.vim<CR>
+
+" Double Space to open last closed file
+nnoremap <Leader><Leader> :e#<CR>
+
+" jj to return to Normal mode
+inoremap jj <ESC>l
+" jk to return to Normal Mode and save file
+inoremap jk <ESC>:w<CR>
+" Use TAB to change Split Panels
+nnoremap <Leader><TAB> <C-w>w
 
 " Disable line numbers
 set nonumber
@@ -328,20 +340,15 @@ endfunction
 "   close window if no results
 "   <leader>j - Search current directory for occurences of word under cursor
 nmap ; :Denite buffer -split=floating -winrow=1<CR>
-nmap <leader>t :Denite file/rec -split=floating -winrow=1<CR>
+nmap <C-p> :Denite file/rec -split=floating -winrow=1<CR>
 nnoremap <leader>g :<C-u>Denite grep:. -no-empty -mode=normal<CR>
 nnoremap <leader>j :<C-u>DeniteCursorWord grep:. -mode=normal<CR>
 
 " === Nerdtree shorcuts === "
 "  <leader>n - Toggle NERDTree on/off
-"  <leader>f - Opens current file location in NERDTree
+"t  <leader>f - Opens current file location in NERDTree
 nmap <leader>n :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
-
-"   <Space> - PageDown
-"   -       - PageUp
-noremap <Space> <PageDown>
-noremap - <PageUp>
 
 " === coc.nvim === "
 nmap <silent> <leader>dd <Plug>(coc-definition)

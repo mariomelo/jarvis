@@ -72,10 +72,12 @@ Plug 'othree/javascript-libraries-syntax.vim'
 
 " Improved syntax highlighting and indentation
 Plug 'othree/yajs.vim'
+Plug 'posva/vim-vue'
 
 " === UI === "
 " File explorer
 Plug 'scrooloose/nerdtree'
+Plug 'roman/golden-ratio'
 
 " Colorscheme
 Plug 'mhartington/oceanic-next'
