@@ -149,5 +149,7 @@ echo "$(tput setaf 2)JARVIS: System update complete. Currently running at 100% p
 echo "---------------------------------------------------------"
 
 mkdir -p ~/.config
+
+echo "Execute o comando ./post-install.sh"
 cp -rf ./config/nvim ~/.config
 exit 0
